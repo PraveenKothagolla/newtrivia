@@ -1,0 +1,245 @@
+/* Landing Page Container */
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6d28d9, #2e1065); /* Gradient background */
+  background-size: cover;
+  background-position: center;
+  padding: 0 20px; /* Added padding for smaller screens */
+  box-sizing: border-box;
+}
+
+/* Landing Content */
+.landing-content {
+  background: linear-gradient(135deg, #6d28d9, #2e1065);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  color: #fbbf24; /* Yellow color */
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+/* Description */
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Game Rules Section */
+.rules {
+  margin-bottom: 30px;
+}
+
+.rules-title {
+  font-size: 1.8rem;
+  color: #fbbf24; /* Yellow color */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rules-list {
+  font-size: 1.2rem;
+  list-style-type: disc;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.rules-list li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Start Button */
+.start-button {
+  padding: 12px 25px;
+  background-color: #fbbf24; /* Yellow button */
+  color: #2e1065; /* Purple text */
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
+  max-width: 200px; /* Button width responsive */
+  margin: 0 auto;
+}
+
+.start-button:hover {
+  background-color: #f59e0b; /* Darker yellow */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.start-button:active {
+  transform: scale(1); /* Normal size on click */
+}
+
+/* Sound Control - Position and Styling */
+.sound-controls {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 3rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.sound-controls:hover {
+  color: #f59e0b; /* Hover effect */
+}
+
+/* Responsive Design */
+
+/* For Tablets */
+@media (max-width: 1024px) {
+  .landing-container {
+    padding: 0 15px;
+  }
+  .landing-content {
+    padding: 30px; /* Reduce padding on smaller screens */
+  }
+  .title {
+    font-size: 2rem; /* Smaller title font size */
+  }
+  .description {
+    font-size: 1.1rem; /* Smaller description font size */
+  }
+  .rules-title {
+    font-size: 1.6rem; /* Smaller rules title font size */
+  }
+  .rules-list li {
+    font-size: 1rem; /* Smaller list items */
+  }
+  .start-button {
+    font-size: 1rem; /* Smaller button font */
+    padding: 10px 20px; /* Smaller button size */
+  }
+  .sound-controls {
+    font-size: 2.5rem; /* Smaller sound button */
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 0 10px;
+  }
+  .landing-content {
+    padding: 20px; /* Even smaller padding on mobile */
+  }
+  .title {
+    font-size: 1.8rem; /* Smaller title font size */
+  }
+  .description {
+    font-size: 1rem; /* Even smaller description font size */
+  }
+  .rules-title {
+    font-size: 1.4rem; /* Even smaller rules title font size */
+  }
+  .rules-list li {
+    font-size: 0.9rem; /* Even smaller list items */
+  }
+  .start-button {
+    font-size: 0.9rem; /* Smaller button font */
+    padding: 8px 15px; /* Even smaller button size */
+  }
+  .sound-controls {
+    font-size: 2rem; /* Smaller sound button */
+  }
+}
+
+/* For Smaller Mobile Devices (Portrait mode) */
+@media (max-width: 480px) {
+  .landing-content {
+    padding: 15px; /* Even smaller padding on mobile */
+  }
+  .title {
+    font-size: 1.5rem; /* Even smaller title font size */
+  }
+  .description {
+    font-size: 0.9rem; /* Even smaller description font size */
+  }
+  .rules-title {
+    font-size: 1.3rem; /* Even smaller rules title font size */
+  }
+  .rules-list li {
+    font-size: 0.85rem; /* Even smaller list items */
+  }
+  .start-button {
+    font-size: 0.9rem; /* Even smaller button font */
+    padding: 8px 15px; /* Even smaller button size */
+  }
+  .sound-controls {
+    font-size: 1.8rem; /* Even smaller sound button */
+  }
+}
+
+/* Large Screens and Ultra-wide screens */
+@media (min-width: 1200px) {
+  .landing-container {
+    padding: 0 30px;
+  }
+  .landing-content {
+    padding: 50px; /* Increase padding for larger screens */
+    max-width: 600px; /* Increase content width */
+  }
+  .title {
+    font-size: 3rem; /* Larger title font */
+  }
+  .description {
+    font-size: 1.3rem; /* Larger description font */
+  }
+  .rules-title {
+    font-size: 2rem; /* Larger rules title font size */
+  }
+  .start-button {
+    font-size: 1.3rem; /* Larger button font */
+    padding: 15px 30px; /* Larger button size */
+  }
+  .sound-controls {
+    font-size: 4rem; /* Larger sound button */
+  }
+}
+
+/* For Ultra-wide Screens (2560px and beyond) */
+@media (min-width: 2560px) {
+  .landing-content {
+    padding: 60px; /* Even more padding for ultra-wide screens */
+    max-width: 1000px; /* Wider content container */
+  }
+  .title {
+    font-size: 3.5rem; /* Larger title font */
+  }
+  .description {
+    font-size: 1.5rem; /* Larger description font */
+  }
+  .rules-title {
+    font-size: 2.2rem; /* Larger rules title font */
+  }
+  .start-button {
+    font-size: 1.5rem; /* Larger button font */
+    padding: 18px 35px; /* Larger button size */
+  }
+  .sound-controls {
+    font-size: 5rem; /* Very large sound button */
+  }
+}
+
+#icon {
+  font-size: 2rem;
+}
