@@ -4,6 +4,7 @@ import "../styling/winningPrize.css";
 import Confetti from 'react-confetti';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPrizeMoney,resetGame } from "../redux/action.js";
+import SoundButton from './soundButton.js';
 
 const WinningPrize = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -43,6 +44,9 @@ const WinningPrize = () => {
   return (
     <div className="winning-prize-container">
       {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />}
+      <div>
+        <SoundButton page="winning"/>
+        </div>
       <div className="content">
         <h1 className="congratulations-text">Congratulations!</h1>
         <p className="you-won-text">You have won:</p>

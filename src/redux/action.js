@@ -1,3 +1,4 @@
+
 export const setPrizeMoney = (amount) => ({
   type: 'SET_PRIZE_MONEY',
   payload: amount,
@@ -28,4 +29,24 @@ export const newGame = () => ({
   type: 'NEW_GAME',
 });
 
+
+
+// Sounding Part
+
+
+// Action types
+export const SET_SOUND = 'SET_SOUND';
+export const TOGGLE_MUTE = 'TOGGLE_MUTE';
+
+// Action to set the current sound
+export const setSound = (sound) => ({
+  type: SET_SOUND,
+  payload: sound,
+  
+});
+
+// Action to toggle mute state
+export const toggleMute = () => ({
+  type: TOGGLE_MUTE,
+});
 

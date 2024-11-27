@@ -95,12 +95,16 @@
   right: 20px;
   font-size: 3rem;
   cursor: pointer;
-  color: #333;
+   color: white;
   transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+  
 }
 
 .sound-controls:hover {
   color: #f59e0b; /* Hover effect */
+  
 }
 
 /* Responsive Design */

@@ -1,10 +1,15 @@
+import {Howl, Howler } from "howler";
 import randomQuestions from "../data/questions";
 const initialState = {
     prize: 0,
     questionsData: [], // Populate questions on initial state
     currentQuestionIndex: 0,
     gameOver: false,
-    currentQuestion: null
+    currentQuestion: null,
+    // isMuted:false
+   
+    currentSound: null,  // Track current sound
+    isMuted: false,      // Track mute state
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -35,9 +40,23 @@ const rootReducer = (state = initialState, action) => {
         case 'RESET_GAME':
             return {
                 ...initialState,
+                isMuted:state.isMuted=false,
                 questionsData: randomQuestions()
             };
-        
+
+
+// sounding part
+case 'SET_SOUND':
+      return {
+        ...state,
+        currentSound: action.payload,  // Set current sound file path
+      };
+    case 'TOGGLE_MUTE':
+      return {
+        ...state,
+        isMuted: !state.isMuted,  // Toggle mute state
+      };
+
         default:
             return state;
     }

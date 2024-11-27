@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sampleSize, shuffle } from 'lodash';
 import { setQuestion, setAnswer, nextQuestion, gameOver } from '../redux/action';
 import randomQuestions from '../data/questions';
 import '../styling/trivia.css';
+import lets_play from "../assets/lets_play.mp3"
 import Timer from './timer'; // Import Timer component
 import { useNavigate } from 'react-router-dom';
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import SoundButton from './soundButton';
+
+
 
 const Trivia = () => {
   const dispatch = useDispatch();
@@ -13,8 +18,15 @@ const Trivia = () => {
   const prize = useSelector((state) => state.prize);
   const gameOverState = useSelector((state) => state.gameOver);
   const navigate = useNavigate();
+  const particlesInit = useCallback(async engine => {
+    await loadSlim(engine);
+  }, []);
 
+  const particlesLoaded = useCallback(async container => {
+    await console.log(container);
+  }, []);
   
+ 
     
     // Dispatch an action to set game questions in Redux state
   
@@ -85,10 +97,45 @@ const Trivia = () => {
   if (!currentQuestion) return <p>No more questions!</p>;
 
   return (
+    <>
+    <Particles
+    id="tsparticles"
+    init={particlesInit}
+    loaded={particlesLoaded}
+    options={{
+      fpsLimit: 120,
+      interactivity: {
+        resize: true,
+      },
+      particles: {
+        color: { value: "#c4b5fd" },
+        move: {
+          direction: "none",
+          enable: true,
+          outModes: { default: "bounce" },
+          random: false,
+          speed: 4,
+          straight: false,
+        },
+        number: {
+          density: { enable: true, area: 800 },
+          value: 70,
+        },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 2 } },
+      },
+      detectRetina: true,
+    }}
+  />
     <div className="trivia-container">
+      <div>
+      <SoundButton page="trivia"/>
+      </div>
       <div className="timer-container">
         <Timer key={timerKey} timeLimit={40} onTimeout={handleTimeout} timerActive={timerActive} />
       </div>
+
 
       <div className="question-box">
         <h2>{currentQuestion.question}</h2>
@@ -112,6 +159,7 @@ const Trivia = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

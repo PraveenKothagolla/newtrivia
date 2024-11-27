@@ -5,9 +5,19 @@ import { useState, useEffect } from 'react';
 // Import particles-bg
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import SoundButton from './soundButton';
+import { useDispatch } from 'react-redux';
+import { setSound } from '../redux/action';
 
 const LandingPage = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();// Initialize the navigate function
+
+  const dispatch = useDispatch();
+
+  // Function to play the landing sound and set it in Redux
+  const playLandingSound = () => {
+    dispatch(setSound('/assets/bg.mp3'));  // Set the landing sound path in Redux
+  };
 
   const particlesInit = useCallback(async engine => {
     await loadSlim(engine);
@@ -54,7 +64,7 @@ const LandingPage = () => {
           detectRetina: true,
         }}
       />
-      
+      <SoundButton page="landing"/>
       <div className="landing-container">
         <div className="landing-content">
           <h1 className="title">TRIVIA TREASURE</h1>
